@@ -2,7 +2,7 @@
 // CONFIGURAÇÃO IMPORTANTE
 // ===================================
 // Cole aqui a URL do seu Google Apps Script Web App
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAHCoQDPUSSVnxdPBfpEpby-iaZoVAo-xB0vhlO4fJ2H4TiyzN3G_7891Cj7m4YfuNQA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_JsbMYo-L3KFb3P35kM6Jx649cMnR9epIkS6rPpbkmm_N42w2K2zLwM_ypBHdsY5D/exec';
 
 // Estado do Quiz
 let currentQuestion = 0;
