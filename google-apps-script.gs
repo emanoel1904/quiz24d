@@ -10,7 +10,7 @@ function doPost(e) {
     const data = JSON.parse(e.postData.contents);
     
     // Abrir planilha (crie uma planilha no Google Sheets e cole o ID aqui)
-    const PLANILHA_ID = 'COLE_AQUI_O_ID_DA_SUA_PLANILHA'; // Exemplo: 1ABC...xyz
+    const PLANILHA_ID = '1DNbGeIk7ICipW2ReRTJHABXLRNyeC6HfEjMwUSHCf-A'; // Exemplo: 1ABC...xyz
     const ss = SpreadsheetApp.openById(PLANILHA_ID);
     const sheet = ss.getSheetByName('Candidatas') || ss.insertSheet('Candidatas');
     
