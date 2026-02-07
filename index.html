@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Torne-se Embaixadora do MÉTODO 24D - Oportunidade exclusiva para influenciadoras de Alagoas">
+    <title>Seleção de Embaixadoras - MÉTODO 24D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">MÉTODO 24D</div>
+            <div class="tagline">Emagreça em 24 Dias</div>
+            <div class="step-indicator" id="stepIndicator">Passo 1 de 11</div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div class="question-card" id="screen-welcome">
+            <div class="welcome-screen">
+                <div class="welcome-icon">🌟</div>
+                <h1>Torne-se Embaixadora do <span class="highlight">MÉTODO 24D</span></h1>
+                <p>Oportunidade exclusiva para influenciadoras de Alagoas com público feminino engajado.</p>
+
+                <div class="product-highlight">
+                    <h3>✨ O que é o MÉTODO 24D?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">👗</div>
+                            <div class="benefit-content">
+                                <h4>Regata Sauna Modeladora</h4>
+                                <p>Tecnologia térmica para potencializar resultados</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-content">
+                                <h4>Área de Membros Premium</h4>
+                                <p>Plataforma estilo Netflix com treinos sem personal e dietas saudáveis</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">📖</div>
+                            <div class="benefit-content">
+                                <h4>E-book Exclusivo</h4>
+                                <p>Desafio 24 Dias + Modo de Uso completo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>🎯 Buscamos Influenciadoras que:</h4>
+                    <ul>
+                        <li>Tenham 10.000+ seguidores</li>
+                        <li>Morem no estado de Alagoas</li>
+                        <li>Público majoritariamente feminino</li>
+                        <li>Seguidores concentrados em Alagoas</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 25px; font-weight: 600; color: var(--primary);">Este processo leva apenas 5 minutos. Vamos começar?</p>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="startQuiz()">Começar Seleção</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 1: Nome -->
+        <div class="question-card hidden" id="screen-q1">
+            <div class="question-number">Pergunta 1 de 11</div>
+            <h2 class="question-title">Qual é o seu nome completo?</h2>
+            <p class="question-subtitle">Como podemos te chamar?</p>
+            
+            <div class="input-wrapper">
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 2: Instagram -->
+        <div class="question-card hidden" id="screen-q2">
+            <div class="question-number">Pergunta 2 de 11</div>
+            <h2 class="question-title">Qual é o seu perfil do Instagram?</h2>
+            <p class="question-subtitle">Cole o link completo (@seuperfil)</p>
+            
+            <div class="input-wrapper">
+                <input type="url" id="instagram" placeholder="https://instagram.com/seuperfil" required>
+                <p class="input-hint">Certifique-se de que seu perfil é público para análise</p>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 3: Número de Seguidores -->
+        <div class="question-card hidden" id="screen-q3">
+            <div class="question-number">Pergunta 3 de 11</div>
+            <h2 class="question-title">Quantos seguidores você tem no Instagram?</h2>
+            <p class="question-subtitle">Precisamos de perfis com no mínimo 10.000 seguidores</p>
+            
+            <div class="input-wrapper">
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', 'Menos de 5.000', true)">
+                        <span class="option-icon">📊</span>
+                        <span class="option-text">Menos de 5.000 seguidores</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', '5.000 a 10.000', true)">
+                        <span class="option-icon">📈</span>
+                        <span class="option-text">5.000 a 10.000 seguidores</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', '10.000 a 30.000')">
+                        <span class="option-icon">🌟</span>
+                        <span class="option-text">10.000 a 30.000 seguidores</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', '30.000 a 50.000')">
+                        <span class="option-icon">🚀</span>
+                        <span class="option-text">30.000 a 50.000 seguidores</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', '50.000 a 100.000')">
+                        <span class="option-icon">⭐</span>
+                        <span class="option-text">50.000 a 100.000 seguidores</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores', 'Mais de 100.000')">
+                        <span class="option-icon">💎</span>
+                        <span class="option-text">Mais de 100.000 seguidores</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" disabled id="btnNext3">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 4: Cidade -->
+        <div class="question-card hidden" id="screen-q4">
+            <div class="question-number">Pergunta 4 de 11</div>
+            <h2 class="question-title">Em qual cidade de Alagoas você mora?</h2>
+            <p class="question-subtitle">Esta parceria é exclusiva para influenciadoras de Alagoas</p>
+            
+            <div class="input-wrapper">
+                <select id="cidade" required>
+                    <option value="">Selecione sua cidade</option>
+                    <option value="Maceió">Maceió</option>
+                    <option value="Arapiraca">Arapiraca</option>
+                    <option value="Palmeira dos Índios">Palmeira dos Índios</option>
+                    <option value="Rio Largo">Rio Largo</option>
+                    <option value="Penedo">Penedo</option>
+                    <option value="União dos Palmares">União dos Palmares</option>
+                    <option value="São Miguel dos Campos">São Miguel dos Campos</option>
+                    <option value="Santana do Ipanema">Santana do Ipanema</option>
+                    <option value="Delmiro Gouveia">Delmiro Gouveia</option>
+                    <option value="Coruripe">Coruripe</option>
+                    <option value="Marechal Deodoro">Marechal Deodoro</option>
+                    <option value="Outra">Outra cidade de Alagoas</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 5: WhatsApp -->
+        <div class="question-card hidden" id="screen-q5">
+            <div class="question-number">Pergunta 5 de 11</div>
+            <h2 class="question-title">Qual é o seu WhatsApp?</h2>
+            <p class="question-subtitle">Para contato caso você seja selecionada</p>
+            
+            <div class="input-wrapper">
+                <input type="tel" id="whatsapp" placeholder="(82) 9 9999-9999" required>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 6: Email -->
+        <div class="question-card hidden" id="screen-q6">
+            <div class="question-number">Pergunta 6 de 11</div>
+            <h2 class="question-title">Qual é o seu e-mail?</h2>
+            <p class="question-subtitle">Para comunicações oficiais da parceria</p>
+            
+            <div class="input-wrapper">
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 7: Público Feminino -->
+        <div class="question-card hidden" id="screen-q7">
+            <div class="question-number">Pergunta 7 de 11</div>
+            <h2 class="question-title">Qual a porcentagem de mulheres no seu público?</h2>
+            <p class="question-subtitle">Buscamos influenciadoras com audiência majoritariamente feminina</p>
+            
+            <div class="input-wrapper">
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'publico_feminino', 'Menos de 50%', true)">
+                        <span class="option-icon">👥</span>
+                        <span class="option-text">Menos de 50% feminino</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'publico_feminino', '50% a 60%')">
+                        <span class="option-icon">👥</span>
+                        <span class="option-text">50% a 60% feminino</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'publico_feminino', '60% a 70%')">
+                        <span class="option-icon">👭</span>
+                        <span class="option-text">60% a 70% feminino</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'publico_feminino', '70% a 80%')">
+                        <span class="option-icon">👭</span>
+                        <span class="option-text">70% a 80% feminino</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'publico_feminino', 'Mais de 80%')">
+                        <span class="option-icon">💃</span>
+                        <span class="option-text">Mais de 80% feminino</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" disabled id="btnNext7">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 8: Seguidores em Alagoas -->
+        <div class="question-card hidden" id="screen-q8">
+            <div class="question-number">Pergunta 8 de 11</div>
+            <h2 class="question-title">Qual % dos seus seguidores está em Alagoas?</h2>
+            <p class="question-subtitle">Precisamos que a maioria da sua audiência seja de Alagoas</p>
+            
+            <div class="input-wrapper">
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'seguidores_alagoas', 'Menos de 30%', true)">
+                        <span class="option-icon">📍</span>
+                        <span class="option-text">Menos de 30% em Alagoas</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores_alagoas', '30% a 50%')">
+                        <span class="option-icon">📍</span>
+                        <span class="option-text">30% a 50% em Alagoas</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores_alagoas', '50% a 70%')">
+                        <span class="option-icon">🗺️</span>
+                        <span class="option-text">50% a 70% em Alagoas</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'seguidores_alagoas', 'Mais de 70%')">
+                        <span class="option-icon">⭐</span>
+                        <span class="option-text">Mais de 70% em Alagoas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" disabled id="btnNext8">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 9: Nicho -->
+        <div class="question-card hidden" id="screen-q9">
+            <div class="question-number">Pergunta 9 de 11</div>
+            <h2 class="question-title">Qual é o principal nicho do seu conteúdo?</h2>
+            <p class="question-subtitle">Pode selecionar mais de uma opção</p>
+            
+            <div class="input-wrapper">
+                <div class="options-grid">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Fitness e Emagrecimento">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">💪</span>
+                            <span class="option-text">Fitness e Emagrecimento</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Alimentação Saudável">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">🥗</span>
+                            <span class="option-text">Alimentação Saudável</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Lifestyle e Bem-estar">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">🌟</span>
+                            <span class="option-text">Lifestyle e Bem-estar</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Moda e Beleza">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">👗</span>
+                            <span class="option-text">Moda e Beleza</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Motivação e Autoestima">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">🎯</span>
+                            <span class="option-text">Motivação e Autoestima</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Maternidade">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">👶</span>
+                            <span class="option-text">Maternidade</span>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="nicho" value="Outro">
+                        <div class="option-card">
+                            <div class="checkmark"></div>
+                            <span class="option-icon">✨</span>
+                            <span class="option-text">Outro</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 10: Visualizações Stories -->
+        <div class="question-card hidden" id="screen-q10">
+            <div class="question-number">Pergunta 10 de 11</div>
+            <h2 class="question-title">Qual a média de visualizações nos seus Stories?</h2>
+            <p class="question-subtitle">Considere os últimos 7 dias</p>
+            
+            <div class="input-wrapper">
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'views_stories', 'Menos de 1.000')">
+                        <span class="option-icon">📊</span>
+                        <span class="option-text">Menos de 1.000 visualizações</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'views_stories', '1.000 a 3.000')">
+                        <span class="option-icon">📈</span>
+                        <span class="option-text">1.000 a 3.000 visualizações</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'views_stories', '3.000 a 5.000')">
+                        <span class="option-icon">🚀</span>
+                        <span class="option-text">3.000 a 5.000 visualizações</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'views_stories', '5.000 a 10.000')">
+                        <span class="option-icon">🔥</span>
+                        <span class="option-text">5.000 a 10.000 visualizações</span>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'views_stories', 'Mais de 10.000')">
+                        <span class="option-icon">⭐</span>
+                        <span class="option-text">Mais de 10.000 visualizações</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" disabled id="btnNext10">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Question 11: Motivação -->
+        <div class="question-card hidden" id="screen-q11">
+            <div class="question-number">Pergunta 11 de 11</div>
+            <h2 class="question-title">Por que você quer ser embaixadora do MÉTODO 24D?</h2>
+            <p class="question-subtitle">Conte-nos como você se conecta com o emagrecimento saudável</p>
+            
+            <div class="input-wrapper">
+                <textarea id="motivo" placeholder="Conte sua história e por que seu público se interessaria pelo MÉTODO 24D..." minlength="100" maxlength="800"></textarea>
+                <div class="char-counter" id="charCounter">0 / 100 caracteres (mínimo)</div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Voltar</button>
+                <button class="btn btn-primary" onclick="submitQuiz()" disabled id="btnSubmit">Enviar Inscrição</button>
+            </div>
+        </div>
+
+        <!-- Thank You Screen -->
+        <div class="question-card hidden" id="screen-thankyou">
+            <div class="thank-you-screen">
+                <div class="success-animation">✨</div>
+                <h2>Inscrição Recebida, <span class="candidate-name" id="candidateName"></span>!</h2>
+                <p style="font-size: 1.05rem; margin-top: 15px;">Sua candidatura está sendo analisada com muito carinho.</p>
+
+                <div class="next-steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">👤</div>
+                        <div class="step-content">
+                            <h4>Análise Personalizada</h4>
+                            <p>Vou revisar pessoalmente cada detalhe da sua inscrição</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-content">
+                            <h4>Verificação Completa</h4>
+                            <p>Vamos conferir seu perfil e as informações enviadas</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-icon">⏰</div>
+                        <div class="step-content">
+                            <h4>Retorno em até 5 dias</h4>
+                            <p>Processo cuidadoso para selecionar as melhores embaixadoras</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-box" style="margin-top: 40px;">
+                    <h4>📲 Se você for aprovada:</h4>
+                    <ul>
+                        <li>Entraremos em contato pelo WhatsApp informado</li>
+                        <li>Você receberá todos os detalhes da parceria</li>
+                        <li>Vamos alinhar expectativas e próximos passos</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <strong>💡 Dica Importante</strong>
+                    <p>Mantenha seu WhatsApp ativo! As vagas são limitadas e a seleção é exclusiva. Boa sorte! 🍀</p>
+                </div>
+
+                <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid var(--border);">
+                    <div class="logo" style="font-size: 2.2rem; margin-bottom: 8px;">MÉTODO 24D</div>
+                    <p style="color: var(--text-light); font-weight: 500;">Emagreça em 24 Dias com Saúde</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay hidden" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <p>Enviando sua inscrição...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
